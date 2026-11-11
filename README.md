@@ -1,59 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Bibliothèque en ligne
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Application web de gestion de bibliothèque. Les lecteurs consultent le catalogue et réservent des livres ; l'administrateur gère le fonds et valide les réservations.
 
-## About Laravel
+## Aperçu
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<img alt="Page d'accueil" src="https://github.com/user-attachments/assets/826ae745-86ce-4613-9525-f1ae0cf9fb3b" />
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Espace lecteur
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| Catalogue et recherche | Fiche d'un livre |
+|---|---|
+| <img alt="Catalogue" src="https://github.com/user-attachments/assets/fe775aa7-0cc0-4b2a-aca9-5978485ce8b9" /> | <img alt="Fiche d'un livre" src="https://github.com/user-attachments/assets/11f9fb69-9bd8-4567-943f-2d03c75a37e9" /> |
 
-## Learning Laravel
+| Note et réservation | Mes réservations |
+|---|---|
+| <img alt="Note et réservation" src="https://github.com/user-attachments/assets/c99d5df2-ee55-4d07-872b-d6d740a0a482" /> | <img alt="Mes réservations" src="https://github.com/user-attachments/assets/382363c5-681c-4784-8f49-ef7e465b117f" /> |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Espace administrateur
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<img alt="Tableau de bord administrateur" src="https://github.com/user-attachments/assets/606cd311-abee-480a-b520-9463b3f98d5c" />
 
-## Laravel Sponsors
+## Fonctionnalités
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**Espace lecteur**
 
-### Premium Partners
+- Catalogue des livres disponibles, avec recherche par titre ou auteur et filtre par catégorie
+- Fiche détaillée de chaque livre
+- Réservation avec dates de début et de fin, et suivi du statut (en attente, validée, annulée)
+- Note de 1 à 5 étoiles et commentaires
+- Gestion du profil
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+**Espace administrateur**
 
-## Contributing
+- Tableau de bord : nombre de livres, d'utilisateurs, de catégories et de réservations en attente
+- Gestion des livres (avec image de couverture), des catégories et des utilisateurs
+- Validation ou annulation des réservations
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Authentification**
 
-## Code of Conduct
+- Inscription, connexion et réinitialisation du mot de passe
+- Deux rôles, lecteur et administrateur, avec accès protégé par middleware
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Technologies
 
-## Security Vulnerabilities
+Laravel 12 (PHP 8.2), Blade, Tailwind CSS, Alpine.js, Vite, MySQL
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Installation
 
-## License
+```bash
+git clone https://github.com/Hanane-b1/Bibliotheque.git
+cd Bibliotheque
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Configurer la base de données dans `.env`, puis :
+
+```bash
+php artisan migrate --seed
+php artisan storage:link
+npm run build
+php artisan serve
+```
+
+Les seeders créent un compte administrateur, des catégories et des livres d'exemple.
+
+## Auteur
+
+Hanane Belhadi
